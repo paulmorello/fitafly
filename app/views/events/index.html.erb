@@ -1,0 +1,21 @@
+<header class="header-index">
+  <h2>Fitness Events in your area</h2>
+
+  <form action="/events/new">
+    <button>Host an Event</button>
+  </form>
+</header>
+
+<% @events.each do |event| %>
+  <div class="event-index">
+    <div class="top">
+      <h3><a href="/events/<%= event.id %>"><%= event.title %></a></h3>
+    </div>
+    <div class="bottom">
+      <p><%= event.description %></p>
+      <form action="/events/<%= event.id %>/edit">
+        <button>Edit</button>
+      </form>
+    </div>
+  </div>
+<% end %>

@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   get '/', to: 'events#index'
 
+  get '/login', to: 'session#new'
+  post '/session', to: 'session#create'
+  delete '/logout', to: 'session#destroy'
+
   resources :events
 end

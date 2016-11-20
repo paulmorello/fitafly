@@ -9,6 +9,13 @@
   </head>
 
   <body>
+
+    <% if logged_in? %>
+      <p>Logged in as: <%= current_user.email %></p>
+    <% else %>
+      <a href="/login">Login</a>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

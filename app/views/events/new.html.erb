@@ -1,0 +1,28 @@
+<h2>Add a new event</h2>
+
+<form action="/events" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="">Title</label>
+  <input name="title" type="text">
+
+  <label for="">Date</label>
+  <input name="date" type="date">
+
+  <label for="">Sport</label>
+  <input name="sport" type="text">
+
+  <label for="">Description</label>
+  <textarea name="description" rows="8" cols="40"></textarea>
+
+  <button>Create</button>
+</form>
+
+<!-- <%= form_for :events do |f| %>
+  <%= f.text_field :title %>
+  <%= f.date_field :date %>
+  <%= f.text_field :sport %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+<% end %> -->
