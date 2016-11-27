@@ -1,11 +1,13 @@
-<h2>Login</h2>
+<h2>Sign Up</h2>
 
 <%= form_tag '/session', method: 'post' do%>
 
+  <label for="">Username</label>
+  <input type="text" name="username">
   <label for="">Email</label>
   <input type="email" name="email">
   <label for="">Password</label>
   <input type="password" name="password">
-  <button>Login</button>
+  <button>Sign Up</button>
 
 <% end %>
