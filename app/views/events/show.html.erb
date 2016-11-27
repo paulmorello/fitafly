@@ -1,3 +1,16 @@
-<h2><%= @event.title %></h2>
 
-<p><%= @event.description %></p>
+<div class="event-show-wrapper">
+  <section class="event-show-header">
+    <h2><%= @event.title %></h2>
+
+  </section>
+  <section class="event-show-body">
+    <p>Location</p>
+    <p><%= @event.description %></p>
+    <p>difficulty </p>
+    <p>Date Posted: <%= @event.date %></p>
+    <p>cost</p>
+    <p>Additional information</p>
+    <button type="button" name="button">Register</button>
+  </section>
+</div>

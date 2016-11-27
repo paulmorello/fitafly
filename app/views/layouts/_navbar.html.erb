@@ -9,14 +9,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Fitafly</a>
+      <a class="navbar-brand" href="/">Fitafly</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li><a href="#">My Profile</a></li>
+          <li><a href="/users/<%= current_user.id %>">My Profile</a></li>
         <% else %>
           <li><a href="/users/new">Sign Up</a></li>
         <% end %>
@@ -28,9 +28,9 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %> <span class="caret"></span></a>
 
             <ul class="dropdown-menu">
-              <li><a href="#">My Activities</a></li>
-              <li><a href="#">Messages</a></li>
-              <li><a href="#">Create Event</a></li>
+              <li><a href="/users/<%= current_user.id %>/edit">Account Details</a></li>
+              <li><a href="/users/<%= current_user.id %>">Messages</a></li>
+              <li><a href="/events/new">Create Event</a></li>
               <li role="separator" class="divider"></li>
               <li>
                 <%= form_tag("/logout", method: "delete") do %>
