@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
 
   def index
+    if !!session[:user_id]
+      redirect_to 'users/home'
+    end
+    
     @events = Event.all
   end
 
