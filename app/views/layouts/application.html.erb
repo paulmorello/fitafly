@@ -13,8 +13,9 @@
   </head>
 
   <body>
-
-    <%= render 'layouts/navbar' %>
+    <% if !current_page?('/') %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
 
     <%= yield %>
   </body>
