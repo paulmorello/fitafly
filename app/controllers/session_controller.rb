@@ -16,7 +16,7 @@ class SessionController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to '/'
+    redirect_to '/users/home'
   end
 
 end
