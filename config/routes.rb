@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/', to: 'users#home'
 
-  get 'events', to: 'events#index'
+  get '/events', to: 'events#index'
 
   get '/login', to: 'session#new'
   post '/session', to: 'session#create'
