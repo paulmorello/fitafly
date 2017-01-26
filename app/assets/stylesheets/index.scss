@@ -1,0 +1,30 @@
+@import "fonts";
+@import "variables";
+
+.index-container {
+  width: 100%;
+
+  .header-index {
+    width: 100%;
+
+    .header-index-heading {
+      h2 {
+        font-size: 2em;
+      }
+    }
+
+    .header-index-hostbtn {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+
+      h2 {
+        text-align: center;
+      }
+      form button{
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}

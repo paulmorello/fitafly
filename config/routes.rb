@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   post '/session', to: 'session#create'
   delete '/logout', to: 'session#destroy'
 
-  get 'users/home', to: 'users#home'
-
   resources :events
   resources :users
 end

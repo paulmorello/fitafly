@@ -1,21 +1,41 @@
-<header class="header-index">
-  <h2>Fitness Events in your area</h2>
 
-  <form action="/events/new">
-    <button>Host an Event</button>
-  </form>
-</header>
 
-<% @events.each do |event| %>
-  <div class="event-index">
-    <div class="top">
-      <h3><a href="/events/<%= event.id %>"><%= event.title %></a></h3>
-    </div>
-    <div class="bottom">
-      <p><%= event.description %></p>
-      <form action="/events/<%= event.id %>/edit">
-        <button>Edit</button>
+<div class="index-container">
+  <div class="header-index">
+
+    <div class="header-index-hostbtn">
+      <h2>Why Not Host Your Own Event?</h2>
+      <form action="/events/new">
+        <button class="ui green button">Host an Event</button>
       </form>
     </div>
+
+    <div class="header-index-heading">
+      <h2>Fitness Events in your area</h2>
+    </div>
   </div>
-<% end %>
+
+  <div class="ui card">
+    <div class="image">
+      <img src="http://avchiropractichealthcenter.com/wp-content/uploads/2015/05/AVC.Running.jpg">
+    </div>
+    <div class="content">
+      <% @events.each do |event| %>
+        <a class="header" href="/events/<%= event.id %>"><%= event.title %></a>
+        <div class="meta">
+          <span class="date">Posted on <%= event.created_at %></span>
+        </div>
+        <div class="description">
+          <p><%= event.description %></p>
+        </div>
+
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="user icon"></i>
+            22 Friends
+          </a>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,5 @@
-$header-font: 'Lalezar', cursive;
-$secondary-font: 'Exo 2', sans-serif;
+@import "fonts";
+@import "variables";
 
 .home-wrapper {
   width: 100%;
@@ -56,4 +56,9 @@ $secondary-font: 'Exo 2', sans-serif;
     color: black;
     background-color: rgb(217, 217, 217);
   }
+}
+
+.nav-link {
+  font-family: $secondary-font;
+  font-weight: bold;
 }
