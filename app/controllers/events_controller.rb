@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
 
+  caches_page :index
+
+  def index; end
+
   def index
     @events = Event.all
   end
@@ -8,6 +12,8 @@ class EventsController < ApplicationController
   end
 
   def create
+
+    expire_page :action => :index
 
     event = Event.new
     event.title = params[:title]
