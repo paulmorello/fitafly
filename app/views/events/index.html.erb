@@ -23,7 +23,7 @@
       <% @events.each do |event| %>
         <a class="header" href="/events/<%= event.id %>"><%= event.title %></a>
         <div class="meta">
-          <span class="date">Posted on <%= event.created_at %></span>
+          <span class="date">Posted on <%= event.date %></span>
         </div>
         <div class="description">
           <p><%= event.description %></p>

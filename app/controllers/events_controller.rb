@@ -1,9 +1,5 @@
 class EventsController < ApplicationController
 
-  caches_page :index
-
-  def index; end
-
   def index
     @events = Event.all
   end

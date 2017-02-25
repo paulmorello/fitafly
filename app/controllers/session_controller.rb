@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  skip_before_filter :verify_authenticity_token
 
   def new
 
@@ -15,6 +16,7 @@ class SessionController < ApplicationController
   end
 
   def destroy
+
     session[:user_id] = nil
     redirect_to '/'
   end
