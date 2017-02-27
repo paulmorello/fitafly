@@ -34,9 +34,8 @@ class UsersController < ApplicationController
       redirect_to '/'
     end
 
-    @user = User.find(session[:user_id])
+    @user = User.find_by(session[:user_id])
     @user.email = params[:email]
-    @user.name = params[:name]
     @user.username = params[:username]
     if params[:password] != ''
       @user.password = params[:password]
@@ -44,8 +43,9 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = "Your account was updated successfully"
-      redirect_to "/users/#{session[:user_id]}"
+      return redirect_to user_path
     end
-  render :edit
+    render :edit
   end
+
 end

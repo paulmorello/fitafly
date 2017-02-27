@@ -5,6 +5,10 @@ class EventsController < ApplicationController
   end
 
   def new
+    if !logged_in?
+      redirect_to new_user_path
+    end
+
   end
 
   def create
@@ -26,7 +30,7 @@ class EventsController < ApplicationController
   end
 
   def show
-
+    
     @event = Event.find_by(id: params[:id])
 
   end
