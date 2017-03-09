@@ -17,9 +17,12 @@ class EventsController < ApplicationController
 
     event = Event.new
     event.title = params[:title]
+    event.location = params[:location]
     event.date = params[:date]
     event.sport = params[:sport]
+    event.difficulty = params[:difficulty]
     event.description = params[:description]
+    event.additional_information = params[:additional_information]
 
     if event.save
       redirect_to '/'
@@ -30,7 +33,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    
+
     @event = Event.find_by(id: params[:id])
 
   end
