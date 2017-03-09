@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       redirect_to '/'
     end
 
-    @user = User.find_by(session[:user_id])
+    @user = User.find(params[:id])
     @user.email = params[:email]
     @user.username = params[:username]
     if params[:password] != ''
