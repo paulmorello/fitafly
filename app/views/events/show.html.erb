@@ -11,6 +11,10 @@
     <p>Date Posted: <%= @event.date %></p>
     <p>Cost:</p>
     <p>Additional Information:</p>
-    <button type="button" name="button">Register</button>
+    <form action="/registrations" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+      <button>Register</button>
+    </form>
   </section>
 </div>

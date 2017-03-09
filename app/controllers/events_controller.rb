@@ -13,8 +13,6 @@ class EventsController < ApplicationController
 
   def create
 
-    expire_page :action => :index
-
     event = Event.new
     event.title = params[:title]
     event.location = params[:location]
@@ -25,7 +23,7 @@ class EventsController < ApplicationController
     event.additional_information = params[:additional_information]
 
     if event.save
-      redirect_to '/'
+      redirect_to '/events'
     else
       render :new
     end

@@ -14,7 +14,7 @@ class User < ApplicationRecord
       message: "no special characters or spacing"
     },
     exclusion: {
-      :in => %w(login signup settings add api snippets search browse archive),
+      :in => %w(login signup settings add search browse archive),
       message: "has already been taken"
     }
   validates :email,
