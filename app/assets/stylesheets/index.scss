@@ -27,4 +27,12 @@
       }
     }
   }
+
+  .main-index-container {
+    width: 100%;
+
+    .card-container {
+      display: inline-block;
+    }
+  }
 }
