@@ -14,6 +14,7 @@ class EventsController < ApplicationController
   def create
 
     event = Event.new
+    event.user_id = current_user.id
     event.title = params[:title]
     event.location = params[:location]
     event.date = params[:date]
@@ -22,7 +23,7 @@ class EventsController < ApplicationController
     event.description = params[:description]
     event.additional_information = params[:additional_information]
 
-    if event.save
+    if event.save!
       redirect_to '/events'
     else
       render :new
