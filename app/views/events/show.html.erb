@@ -3,7 +3,7 @@
   <section class="event-show-header">
     <h2><%= @event.title %></h2>
   </section>
-  
+
   <section class="event-show-body">
     <p>Location: <%= @event.location %></p>
     <p>About the Event: <%= @event.description %></p>
@@ -17,5 +17,14 @@
       <input type="hidden" name="event_id" value="<%= @event.id %>">
       <button class="ui green button">Register</button>
     </form>
+  </section>
+
+  <section class="event-show-registrations">
+    <h2>Who's Going So Far?</h2>
+    <div class="event-registrations-card">
+      <% @user_rsvp.each do |user| %>
+        <h3><%= user.username %></h3>
+      <% end %>
+    </div>
   </section>
 </div>
