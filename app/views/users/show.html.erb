@@ -1,3 +1,21 @@
 
+<div class="user-show-container">
+  <section class="user-show-header">
+    <h1>My Activities</h1>
+  </section>
 
-<h1>My Activities</h1>
+  <section class="user-show-host">
+    <h1>Upcoming Hosted Activities</h1>
+    <% @host_event.each do |host| %>
+      <div class='user-event-host-card'>
+        <h2><%= host.title %></h2>
+        <p><%= host.date %></p>
+        <h3>Current Attendees</h3>
+      </div>
+    <% end %>
+  </section>
+
+  <section class="user-show-attending">
+    <h1>Upcoming Attending Activities</h1>
+  </section>
+</div>

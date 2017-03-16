@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     event.location = params[:location]
     event.date = Time.now.to_s.slice(0,10)
     event.sport = params[:sport]
-    event.difficulty = params[:difficulty]  
+    event.difficulty = params[:difficulty]
     event.description = params[:description]
     event.additional_information = params[:additional_information]
 
@@ -35,8 +35,11 @@ class EventsController < ApplicationController
 
     @event = Event.find_by(id: params[:id])
     @registration = Registration.find_by(event_id: params[:id])
-    @user_rsvp = User.where(id: @registration.user_id)
 
+    if @registration != nil
+      @user_rsvp = User.where(id: @registration.user_id)
+    end
+    
   end
 
 end

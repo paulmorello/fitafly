@@ -22,6 +22,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @host_event = Event.where(user_id: params[:id])
+    @registration = Registration.where(user_id: params[:id])
+    
+  end
+
   def edit
     if session[:user_id] != params[:id].to_i
       redirect_to '/'
