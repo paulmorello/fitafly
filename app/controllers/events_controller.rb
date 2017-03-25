@@ -34,12 +34,14 @@ class EventsController < ApplicationController
   def show
 
     @event = Event.find_by(id: params[:id])
-    @registration = Registration.find_by(event_id: params[:id])
+    @registrations = Registration.where(event_id: params[:id])
 
-    if @registration != nil
-      @user_rsvp = User.where(id: @registration.user_id)
+    @user_rsvp = []
+    if @registrations != nil
+      @registrations.each do |rsvp|
+        @user_rsvp.push(User.where(id: rsvp.user_id)).uniq
+      end
     end
-    
   end
 
 end

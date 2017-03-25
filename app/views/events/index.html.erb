@@ -22,12 +22,12 @@
           <img src="http://avchiropractichealthcenter.com/wp-content/uploads/2015/05/AVC.Running.jpg">
         </div>
         <div class="content">
-          <a class="header" href="/events/<%= event.id %>"><%= event.title %></a>
+          <a class="header" href="/events/<%= event.id %>"><%= event['title'] %></a>
           <div class="meta">
-            <span class="date">Posted on <%= event.date %></span>
+            <span class="date">Posted on <%= event['date'] %></span>
           </div>
           <div class="description">
-            <p><%= event.description %></p>
+            <p><%= event['description'] %></p>
           </div>
 
           <div class="extra content">

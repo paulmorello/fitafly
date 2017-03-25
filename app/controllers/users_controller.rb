@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-
       redirect_to '/events'
     else
 
@@ -23,8 +22,18 @@ class UsersController < ApplicationController
   end
 
   def show
-    @host_event = Event.where(user_id: params[:id])
-    @registration = Registration.where(user_id: params[:id])
+    @host_event = Event.where(user_id: current_user.id)
+    @host_attendees = Registration.find_by_event_id(@host_event.ids)
+
+    if @host_attendees != nil
+      @user_attending = User.find_by(id: @host_attendees.user_id)
+    end
+
+    @user_events = []
+    @user_registrations = Registration.where(user_id: current_user.id)
+    @user_registrations.each do |attending|
+      @user_events.push(Event.where(id: attending.event_id))
+    end
     
   end
 

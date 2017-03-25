@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :registrations
+  has_many :registrations, dependent: :destroy
+
   has_many :events, dependent: :destroy
+  has_many :events, :through => :registrations
 
   # Validation constraints
   validates :email, :username, presence: true
