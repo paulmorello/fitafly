@@ -20,7 +20,7 @@
           <h2><%= host['title'] %></h2>
           <p><%= host['date'] %></p>
 
-          total number of registrations for user hosted events
+          <!-- total number of registrations for user hosted events -->
           <% total = Registration.where(event_id: host['id']).size %>
           <p>Total Registrations <%= total %></p>
         </div>
