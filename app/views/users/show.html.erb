@@ -6,24 +6,29 @@
 
   <section class="user-show-host">
     <h1>Upcoming Hosted Activities</h1>
-    <% @host_event.each do |host| %>
-      <div class='user-event-host-card'>
-        <h2><%= host['title'] %></h2>
-        <p><%= host['date'] %></p>
-        <% if host['id'] == @host_attendees['event_id'] && @user_attending != nil %>
-          <p><%= @user_attending.username %></p>
-        <% end %>
-      </div>
+
+    <!-- if user has not created an event, this displays host event button -->
+    <% if @host_event.empty? %>
+      <form action="/events/new">
+        <button class="ui green button">Host an Event</button>
+      </form>
+
+    <!-- Displays all events user has created -->
+    <% else %>
+      <% @host_event.each do |host| %>
+        <div class='user-event-host-card'>
+          <h2><%= host['title'] %></h2>
+          <p><%= host['date'] %></p>
+
+          total number of registrations for user hosted events
+          <% total = Registration.where(event_id: host['id']).size %>
+          <p>Total Registrations <%= total %></p>
+        </div>
+      <% end %>
     <% end %>
   </section>
 
   <section class="user-show-attending">
     <h1>Upcoming Attending Activities</h1>
-    <% @user_events.each do |event| %>
-      <div class='user-event-register-card'>
-        <h2><% event[0]['title'] %></h2>
-        <p>When: <%= event[0]['date'] %></p>
-      </div>
-    <% end %>
   </section>
 </div>
