@@ -9,9 +9,8 @@
 
     <!-- if user has not created an event, this displays host event button -->
     <% if @host_event.empty? %>
-      <form action="/events/new">
+      <%= form_tag("/events/new", method: :get) %>
         <button class="ui green button">Host an Event</button>
-      </form>
 
     <!-- Displays all events user has created -->
     <% else %>

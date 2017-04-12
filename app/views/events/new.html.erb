@@ -1,7 +1,6 @@
 <h2>Add a new event</h2>
 
-<form action="/events" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<%= form_tag("/events", method: :post) %>
 
   <label for="">Title</label>
   <input name="title" type="text">
@@ -22,4 +21,3 @@
   <textarea name="additional_information" rows="8" cols="40"></textarea>
 
   <button>Create</button>
-</form>
