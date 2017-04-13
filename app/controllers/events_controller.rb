@@ -5,9 +5,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    if !logged_in?
-      redirect_to new_user_path
-    end
+    redirect_to_route_if_not_logged_in('users/new')
 
   end
 

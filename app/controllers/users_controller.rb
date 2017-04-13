@@ -1,16 +1,12 @@
 class UsersController < ApplicationController
 
   def home
-    if logged_in?
-      redirect_to '/events'
-    end
+    redirect_to_route_if_logged_in('events')
 
   end
 
   def new
-    if logged_in?
-      redirect_to '/events'
-    end
+    redirect_to_route_if_logged_in('events')
 
   end
 
@@ -35,17 +31,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if !logged_in?
-      redirect_to '/'
-    end
+    redirect_to_route_if_not_logged_in
 
     @user = current_user
   end
 
   def update
-    if !logged_in?
-      redirect_to '/'
-    end
+    redirect_to_route_if_not_logged_in
 
     @user = current_user
     @user.email = params[:email]

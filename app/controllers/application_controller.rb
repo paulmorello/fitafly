@@ -3,5 +3,6 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :warning, :danger, :info
   include SessionHelper
   include EventHelper
+  include RouteHelper
 
 end
