@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
 
   def home
+    if logged_in?
+      redirect_to '/events'
+    end
+    
   end
 
   def new
+    if logged_in?
+      redirect_to '/events'
+    end
+
   end
 
   def create
@@ -27,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if session[:user_id] != params[:id].to_i
+    if !logged_in?
       redirect_to '/'
     end
 
@@ -35,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if session[:user_id] != params[:id].to_i
+    if !logged_in?
       redirect_to '/'
     end
 
