@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect_to '/events'
     end
-    
+
   end
 
   def new
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       redirect_to '/'
     end
 
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
       redirect_to '/'
     end
 
-    @user = User.find(params[:id])
+    @user = current_user
     @user.email = params[:email]
     @user.username = params[:username]
     if params[:password] != ''

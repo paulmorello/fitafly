@@ -33,7 +33,7 @@ class EventsController < ApplicationController
 
   def show
 
-    @event = Event.find_by(id: params[:id])
+    @event = current_event
     @registrations = Registration.where(event_id: params[:id])
 
     @user_rsvp = []
