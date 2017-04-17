@@ -40,6 +40,7 @@ class EventsController < ApplicationController
         @user_rsvp.push(User.where(id: rsvp.user_id)).uniq
       end
     end
+
   end
 
 end

@@ -9,7 +9,7 @@
 
     <!-- if user has not created an event, this displays host event button -->
     <% if @host_event.empty? %>
-      <a class="ui green button" href="/events/new">Host an Event</a>
+      <%= render 'partials/hosteventbutton' %>
 
     <!-- Displays all events user has created -->
     <% else %>
