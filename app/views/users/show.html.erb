@@ -9,8 +9,7 @@
 
     <!-- if user has not created an event, this displays host event button -->
     <% if @host_event.empty? %>
-      <%= form_tag("/events/new", method: :get) %>
-        <button class="ui green button">Host an Event</button>
+      <a class="ui green button" href="/events/new">Host an Event</a>
 
     <!-- Displays all events user has created -->
     <% else %>
@@ -29,5 +28,8 @@
 
   <section class="user-show-attending">
     <h1>Upcoming Attending Activities</h1>
+
+    <!-- If user is not yet attending an activity -->
+    <a class="ui green button" href="/events">Find an Event</a>
   </section>
 </div>
