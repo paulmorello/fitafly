@@ -5,6 +5,10 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :events, :through => :registrations
 
+  has_many :messages
+  has_many :chatrooms, through: :messages
+  validates :username, presence: true, uniqueness: true
+
   # Validation constraints
   validates :email, :username, presence: true
   validates :email, uniqueness: true
