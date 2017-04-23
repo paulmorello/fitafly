@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :events
   resources :users
   resources :registrations
+  resources :chatrooms
+  resources :messages
 end
