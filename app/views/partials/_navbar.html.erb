@@ -5,7 +5,7 @@
   <!-- Menu for logged in users -->
   <% if logged_in? %>
     <a href="/events" class="item nav-link">Events</a>
-    <a class="item nav-link">Messages</a>
+    <a href="/chatrooms" class="item nav-link">Messages</a>
     <div class="ui dropdown link item">
       <span class="text nav-link"><%= current_user.username %></span>
       <i class="dropdown icon"></i>
