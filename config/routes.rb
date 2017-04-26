@@ -13,9 +13,8 @@ Rails.application.routes.draw do
   resources :users
   resources :registrations
 
-  # Serve websocket cable requests in-process
-  mount ActionCable.server => '/cable'
-
-  resources :chatrooms, param: :slug
-  resources :messages
+  resources :chatrooms do
+    resources :messages
+  end
+  
 end
