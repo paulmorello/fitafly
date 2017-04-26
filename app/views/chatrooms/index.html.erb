@@ -1,0 +1,37 @@
+<div class=”ui segment”>
+
+  <h3>Mailbox</h3>
+
+    <div class=”ui list”>
+      <div class=”item”>
+        <% @chatrooms.each do |chatroom| %>
+          <% if chatroom.sender_id == current_user.id || chatroom.recipient_id == current_user.id %>
+            <% if chatroom.sender_id == current_user.id %>
+              <% recipient = User.find(chatroom.recipient_id) %>
+            <% else %>
+              <% recipient = User.find(chatroom.sender_id) %>
+            <% end %>
+
+            <%= link_to recipient.username,   chatroom_messages_path(chatroom)%>
+
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class=”ui segment”>
+
+    <h3>All Users</h3>
+
+    <div class=”ui list”>
+      <% @users.each do |user| %>
+        <% if user.id != current_user.id %>
+          <div class=”item”>
+            <%= user.username %> <%= link_to ‘Message me!’, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: ‘post’%>
+          </div>
+        <% end %>
+      <% end %>
+   </div>
+   
+</div>
