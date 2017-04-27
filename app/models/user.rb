@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   validates :username, uniqueness: true, length: {
-    in: 4..400,
+    in: 4..60,
     },
     format: {
       without: /[^a-z0-9]/i,
@@ -20,7 +20,9 @@ class User < ApplicationRecord
       :in => %w(login signup settings add search browse archive),
       message: "has already been taken"
     }
-  validates :email,
+  validates :email, length: {
+    in: 10..100,
+    },
     format: {
       with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     }

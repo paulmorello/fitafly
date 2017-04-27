@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     else
       redirect_to_route_if_not_logged_in
     end
+    
   end
 
   def edit

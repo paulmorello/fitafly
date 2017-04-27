@@ -4,4 +4,6 @@ class Registration < ApplicationRecord
 
   # Make sure that one user cannot join the same event more than once at a time.
   validates :event_id, :uniqueness => { :scope => :user_id }
+
+  validates :event_id, :user_id, presence: true
 end
