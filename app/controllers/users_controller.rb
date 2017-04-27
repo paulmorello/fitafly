@@ -26,8 +26,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @host_event = Event.where(user_id: current_user.id)
-
+    if logged_in?
+      @host_event = Event.where(user_id: current_user.id)
+    else
+      redirect_to_route_if_not_logged_in
+    end
   end
 
   def edit
