@@ -5,12 +5,12 @@
     <h2>Editing your Account</h2>
   </div>
 
-  <div class="user-forms">
-    <%= form_tag user_path , method: 'patch' do %>
-      <input type="email" name="email" placeholder="Email" value="<%= @user.email %>">
-      <input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
-      <input type="password" name="password" placeholder="New password? Type it here" value="">
-      <button>Update</button>
+  <div class="signupform">
+    <%= form_tag user_path, class: 'ui form', method: 'patch' do %>
+      <input class="field" type="email" name="email" placeholder="Email" value="<%= @user.email %>">
+      <input class="field" type="text" name="username" placeholder="Username" value="<%= @user.username %>">
+      <input class="field" type="password" name="password" placeholder="New password? Type it here" value="">
+      <button class="ui blue button">Update</button>
     <% end %>
 
   </div>

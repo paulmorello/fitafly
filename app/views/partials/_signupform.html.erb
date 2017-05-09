@@ -1,12 +1,18 @@
 
-<%= form_tag '/users', method: 'post' do%>
+<%= form_tag '/users', class: 'ui form', method: 'post' do%>
 
-  <label for="">Username</label>
-  <input type="text" name="username">
-  <label for="">Email</label>
-  <input type="email" name="email">
-  <label for="">Password</label>
-  <input type="password" name="password">
-  <button>Sign Up</button>
+  <div class="field">
+    <label for="">Username</label>
+    <input class="ui input" type="text" name="username">
+  </div>
+  <div class="field">
+    <label for="">Email</label>
+    <input class="ui input" type="email" name="email">
+  </div>
+  <div class="field">
+    <label for="">Password</label>
+    <input class="ui input" type="password" name="password">
+  </div>
+  <button class="ui blue button">Sign Up</button>
 
 <% end %>

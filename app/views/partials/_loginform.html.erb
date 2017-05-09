@@ -1,10 +1,14 @@
 
-<%= form_tag '/session', method: 'post' do%>
+<%= form_tag '/session', class: 'ui form', method: 'post' do%>
 
-  <label for="">Email</label>
-  <input type="email" name="email">
-  <label for="">Password</label>
-  <input type="password" name="password">
-  <button>Login</button>
+  <div class="field">
+    <label for="">Email</label>
+    <input class="ui input" type="email" name="email">
+  </div>
+  <div class="field">
+    <label for="">Password</label>
+    <input class="ui input" type="password" name="password">
+  </div>
+  <button class="ui blue button">Login</button>
 
 <% end %>
