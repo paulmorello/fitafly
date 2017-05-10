@@ -12,4 +12,7 @@ class Event < ApplicationRecord
 
   validates :cost, numericality: { greater_than: -1, less_than: 1001 }
 
+  # scope to make searching by sport simple
+  scope :search_by_sport, -> (sport) { where("sport LIKE ?", sport + "%") }
+
 end

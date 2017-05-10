@@ -1,9 +1,13 @@
 class EventsController < ApplicationController
 
   def index
-    # Starting at 0, will increase with greater number as user scrolls
-    offset = 0
-    @events = Event.limit(10).offset(offset)
+
+    if @events.nil?
+      # Starting at 0, will increase with greater number as user scrolls
+      offset = 0
+      @events = Event.limit(10).offset(offset)
+    end
+
   end
 
   def new
@@ -18,7 +22,7 @@ class EventsController < ApplicationController
     event.title = params[:title]
     event.location = params[:location]
     event.date = Time.now.to_s.slice(0,10)
-    event.sport = params[:sport]
+    event.sport = params[:sport].downcase
     event.difficulty = params[:difficulty]
     event.description = params[:description]
     event.additional_information = params[:additional_information]
@@ -54,6 +58,16 @@ class EventsController < ApplicationController
       end
 
     end
+  end
+
+  def search
+
+    sport = params[:search].downcase
+
+    @events = Event.search_by_sport(sport)
+
+    redirect_to '/events'
+
   end
 
 end

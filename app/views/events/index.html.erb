@@ -3,10 +3,24 @@
 <div class="index-container">
 
   <div class="header-index">
+
     <div class="header-index-hostbtn">
       <h2>Why Not Host Your Own Event?</h2>
-      <%= form_tag("/events/new", method: :get) %>
+      <%= form_tag("/events/new", method: :get) do %>
         <button class="ui green button">Host an Event</button>
+      <% end %>
+    </div>
+
+    <div class="header-index-search">
+      <div class="ui form">
+        <%= form_tag "/search", method: 'post' do %>
+          <div class="field">
+            <input class="ui input" placeholder="Search by sport" type="text" name="search">
+          </div>
+          <button class="ui blue button">Search</button>
+        <% end %>
+
+      </div>
     </div>
 
     <div class="header-index-heading">

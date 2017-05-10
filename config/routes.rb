@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post '/session', to: 'session#create'
   delete '/logout', to: 'session#destroy'
 
+  post '/search', to: 'events#search'
+
   resources :events
   resources :users
   resources :registrations
@@ -16,5 +18,5 @@ Rails.application.routes.draw do
   resources :chatrooms do
     resources :messages
   end
-  
+
 end
