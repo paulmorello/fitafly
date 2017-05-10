@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.first(10)
+    # Starting at 0, will increase with greater number as user scrolls
+    offset = 0
+    @events = Event.limit(10).offset(offset)
   end
 
   def new
@@ -33,14 +35,23 @@ class EventsController < ApplicationController
 
     @event = current_event
     @registrations = Registration.where(event_id: params[:id])
+    if @registrations != nil? && @registrations.count > 100
+      @rsvps = @registrations.first(100)
 
-    @user_rsvp = []
-    if @registrations != nil
+      @user_rsvp = []
+      @rsvps.each do |rsvp|
+        @user_rsvp.push(User.where(id: rsvp.user_id)).uniq
+      end
+
+      @more_rsvps = `Plus another #{@registrations.count - @rsvps.count} attending!`
+
+    else
+      @user_rsvp = []
       @registrations.each do |rsvp|
         @user_rsvp.push(User.where(id: rsvp.user_id)).uniq
       end
-    end
 
+    end
   end
 
 end
