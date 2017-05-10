@@ -12,26 +12,11 @@
               <% recipient = User.find(chatroom.sender_id) %>
             <% end %>
 
-            <%= link_to recipient.username,   chatroom_messages_path(chatroom)%>
+            <%= link_to recipient.username, chatroom_messages_path(chatroom)%>
 
           <% end %>
         <% end %>
       </div>
     </div>
   </div>
-
-  <div class=”ui segment”>
-
-    <h3>All Users</h3>
-
-    <div class=”ui list”>
-      <% @users.each do |user| %>
-        <% if user.id != current_user.id %>
-          <div class=”item”>
-            <%= user.username %> <%= link_to ('Message me!'), chatrooms_path(sender_id: current_user.id, recipient_id: user.id), method: :post%>
-          </div>
-        <% end %>
-      <% end %>
-   </div>
-
 </div>

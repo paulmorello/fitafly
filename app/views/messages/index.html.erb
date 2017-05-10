@@ -3,24 +3,29 @@
   <%= link_to 'Show Previous', '?m=all' %>
 <% end %>
 
-<div class=”ui segment”>
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <% user = User.find(message.user_id) %>
-      <div class=”item”>
-        <div class=”content”>
-          <div class=”header”><strong><%= user.username %></strong> <%= message.message_time %></div>
-            <div class=”list”>
-              <div class=”item”>
-                <i class=”right triangle icon”></i>
-                <%= message.body %>
-              </div>
-            </div>
-          </div>
+<div class="ui minimal comments">
+<h3 class="ui dividing header">Messages</h3>
+  <div class="comment">
+    <% @messages.each do |message| %>
+      <% if message.body %>
+        <% user = User.find(message.user_id) %>
+        <div class="content">
+          <a class="avatar">
+            <img src="http://avchiropractichealthcenter.com/wp-content/uploads/2015/05/AVC.Running.jpg">
+          </a>
         </div>
-      </div>
+        <a class="author"><%= user.username %></a>
+        <div class="metadata">
+          <span class="date">Today at <%= message.message_time %></span>
+        </div>
+        <div class="text">
+          <%= message.body %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+</div>
+
 
 <%= form_for [@chatroom, @message], html: {class: "ui reply form"} do |f| %>
   <div class="field">

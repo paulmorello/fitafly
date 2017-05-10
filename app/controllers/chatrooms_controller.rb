@@ -1,8 +1,8 @@
 class ChatroomsController < ApplicationController
 
   def index
-    @users = User.all
-    @chatrooms = Chatroom.all
+    offset = 0
+    @chatrooms = Chatroom.order('id ASC').limit(10).offset(offset)
   end
 
   def create
