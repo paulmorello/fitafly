@@ -46,7 +46,7 @@ class EventsController < ApplicationController
         @user_rsvp.push(User.find(id: rsvp.user_id)).uniq
       end
       @more_rsvps = "+#{@registrations.count - @rsvps.count} more people attending!"
-      
+
     else
       @user_rsvp = []
       @registrations.each do |rsvp|

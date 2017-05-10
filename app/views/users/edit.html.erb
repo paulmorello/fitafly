@@ -1,17 +1,23 @@
 
 <div class="form-wrapper">
   <div class="form-header">
-    <h1 class="">Fitafly</h1>
-    <h2>Editing your Account</h2>
-  </div>
-
-  <div class="signupform">
+    <div class="signupform">
+      <h2>Editing your Account</h2>
+    </div>
+    
     <%= form_tag user_path, class: 'ui form', method: 'patch' do %>
-      <input class="field" type="email" name="email" placeholder="Email" value="<%= @user.email %>">
-      <input class="field" type="text" name="username" placeholder="Username" value="<%= @user.username %>">
-      <input class="field" type="password" name="password" placeholder="New password? Type it here" value="">
-      <button class="ui blue button">Update</button>
-    <% end %>
 
+      <div class="field">
+        <input class="field" type="email" name="email" placeholder="Email" value="<%= @user.email %>">
+      </div>
+      <div class="field">
+        <input class="field" type="text" name="username" placeholder="Username" value="<%= @user.username %>">
+      </div>
+      <div class="field">
+        <input class="field" type="password" name="password" placeholder="New password? Type it here" value="">
+      </div>
+      <button class="ui blue button">Update</button>
+
+    <% end %>
   </div>
 </div>
