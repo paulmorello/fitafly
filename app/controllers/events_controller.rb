@@ -35,16 +35,18 @@ class EventsController < ApplicationController
 
     @event = current_event
     @registrations = Registration.where(event_id: params[:id])
-    if @registrations != nil? && @registrations.count > 100
-      @rsvps = @registrations.first(100)
 
+    # If more than 40 registrations for event, get first 40 people and display
+    # count of extra people attending to save time.
+    if @registrations != nil? && @registrations.count > 40
+      @rsvps = @registrations.first(40)
       @user_rsvp = []
+
       @rsvps.each do |rsvp|
-        @user_rsvp.push(User.where(id: rsvp.user_id)).uniq
+        @user_rsvp.push(User.find(id: rsvp.user_id)).uniq
       end
-
-      @more_rsvps = `Plus another #{@registrations.count - @rsvps.count} attending!`
-
+      @more_rsvps = "+#{@registrations.count - @rsvps.count} more people attending!"
+      
     else
       @user_rsvp = []
       @registrations.each do |rsvp|

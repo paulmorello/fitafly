@@ -20,13 +20,23 @@
   <section class="event-show-registrations">
     <h2>Who's Going So Far?</h2>
     <div class="event-registrations-card">
+
       <% if @user_rsvp == nil %>
         <p>Be the first to Attend</p>
+
+      <% elsif !@more_rsvps.nil? %>
+        <% @user_rsvp.each do |user| %>
+          <h3><%= user[0]['username'] %></h3>
+        <% end %>
+        <p><%= @more_rsvps %></p>
+
       <% else %>
         <% @user_rsvp.each do |user| %>
           <h3><%= user[0]['username'] %></h3>
         <% end %>
+        
       <% end %>
+
     </div>
   </section>
 </div>
