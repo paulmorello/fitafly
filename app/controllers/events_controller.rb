@@ -62,7 +62,7 @@ class EventsController < ApplicationController
 
   def search
 
-    sport = params[:search].downcase
+    @sport = params[:search].downcase
 
     @events = Event.search_by_sport(sport)
 
