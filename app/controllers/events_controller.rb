@@ -8,6 +8,10 @@ class EventsController < ApplicationController
       @events = Event.limit(10).offset(offset)
     end
 
+    if params[:search]
+      sport = params[:search].downcase
+      @events = Event.search_by_sport(sport).order("created_at DESC").limit(10)
+    end
   end
 
   def new
@@ -72,16 +76,6 @@ class EventsController < ApplicationController
     else
       redirect_to "/users/#{current_user.id}"
     end
-  end
-
-  def search
-
-    sport = params[:search].downcase
-
-    @events = Event.search_by_sport(sport)
-
-    redirect_to '/events'
-
   end
 
 end
