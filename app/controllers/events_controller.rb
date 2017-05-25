@@ -60,9 +60,23 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    redirect_to_route_if_not_logged_in('users/new')
+
+    event = Event.find(params[:event_id])
+
+    if current_user.id == event.user_id
+      event.delete
+      redirect_to "/users/#{current_user.id}"
+
+    else
+      redirect_to "/users/#{current_user.id}"
+    end
+  end
+
   def search
 
-    @sport = params[:search].downcase
+    sport = params[:search].downcase
 
     @events = Event.search_by_sport(sport)
 

@@ -18,6 +18,13 @@
           <h2><%= host['title'] %></h2>
           <p><%= host['date'] %></p>
 
+          <% if host.user_id == current_user.id %>
+            <%= form_tag event_path, method: 'delete' do %>
+              <input type="text" hidden="hidden" name="event_id" value="<%= host.id %>">
+              <button class="ui red button">Delete</button>
+            <% end %>
+          <% end %>
+
           <!-- total number of registrations for user hosted events -->
           <% total = Registration.where(event_id: host['id']).size %>
           <p>Total Registrations <%= total %></p>
