@@ -9,7 +9,7 @@
     <p>About the Event: <%= @event['description'] %></p>
     <p>Difficulty: <%= @event['difficulty'] %></p>
     <p>Date Posted: <%= @event['date'] %></p>
-    <p>Cost: <%= @event['cost'] %></p>
+    <p>Cost: $<%= @event['cost'] %></p>
     <p>Additional Information: <%= @event['additional_information'] %></p>
 
     <%= form_tag('/registrations', method: :post) %>
@@ -34,7 +34,7 @@
         <% @user_rsvp.each do |user| %>
           <h3><%= user[0]['username'] %></h3>
         <% end %>
-        
+
       <% end %>
 
     </div>
