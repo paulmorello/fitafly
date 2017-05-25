@@ -27,6 +27,7 @@ class EventsController < ApplicationController
     event.location = params[:location]
     event.date = Time.now.to_s.slice(0,10)
     event.sport = params[:sport].downcase
+    event.cost = params[:cost]
     event.difficulty = params[:difficulty]
     event.description = params[:description]
     event.additional_information = params[:additional_information]
