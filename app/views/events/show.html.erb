@@ -12,9 +12,14 @@
     <p>Cost: $<%= @event['cost'] %></p>
     <p>Additional Information: <%= @event['additional_information'] %></p>
 
-    <%= form_tag('/registrations', method: :post) %>
-      <input type="hidden" name="event_id" value="<%= @event['id'] %>">
-      <button class="ui green button">Register</button>
+    <!-- Conditional block to stop people registering for their own event -->
+    <% if @event.user_id == current_user.id %>
+      <p><%= "You currently have #{@user_rsvp.count} people attending!" %></p>
+    <% else %>
+      <%= form_tag('/registrations', method: :post) %>
+        <input type="hidden" name="event_id" value="<%= @event['id'] %>">
+        <button class="ui green button">Register</button>
+    <% end %>
   </section>
 
   <section class="event-show-registrations">
@@ -36,7 +41,6 @@
         <% end %>
 
       <% end %>
-
     </div>
   </section>
 </div>
