@@ -17,6 +17,7 @@ class EventsController < ApplicationController
   def new
     redirect_to_route_if_not_logged_in('users/new')
 
+    @sports = ['Basketball', 'Tennis', 'NFL', 'Baseball', 'Softball', 'Running', 'Workout', 'Other']
   end
 
   def create

@@ -14,7 +14,11 @@
     </div>
     <div class="field">
       <label for="">Sport</label>
-      <input name="sport" type="text">
+      <select name="sport">
+        <% @sports.each do |sport| %>
+          <option value="<%= sport %>"><%= sport %></option>
+        <% end %>
+      <select>
     </div>
     <div class="field">
       <label for="">Cost</label>
