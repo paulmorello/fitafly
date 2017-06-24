@@ -4,6 +4,8 @@ class Event < ApplicationRecord
   has_many :registrations, :dependent => :destroy
   has_many :users, :through => :registrations
 
+  before_validation :normalize_event_title
+
   validates :title, :sport, :description, :user_id, :location, :difficulty, :additional_information, :cost, presence: true
 
   validates :description, :additional_information, length: {
@@ -14,5 +16,11 @@ class Event < ApplicationRecord
 
   # scope to make searching by sport simple
   scope :search_by_sport, -> (sport) { where("sport ILIKE ?", sport + "%") }
+
+  private
+    # make event title consistent
+    def normalize_event_title
+      self.title = title.downcase.titleize
+    end
 
 end
