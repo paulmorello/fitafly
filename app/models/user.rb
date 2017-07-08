@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  has_paper_trail
+  
   has_many :registrations, dependent: :destroy
 
   has_many :events, dependent: :destroy

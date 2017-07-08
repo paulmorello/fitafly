@@ -1,4 +1,3 @@
-
 module SessionHelper
 
   def current_user
